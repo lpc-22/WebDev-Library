@@ -1,0 +1,28 @@
+<main class="bookList-container">
+    {{#each bookList}}
+    <div class="bookItem-container">
+        <img src="/image/book/{{this.image}}" alt="">
+        <div class="bookItem-text">
+            <table>
+                <tr>
+                    <td class="bold">Title:</td>
+                    <td>{{this.title}}</td>
+                </tr>
+                <tr>
+                    <td class="bold">Author:</td>
+                    <td>{{this.author}}</td>
+                </tr>
+            </table>
+            {{#if this.borrowedBy}}
+                <p class="blue italic">UNAVAILABLE - Currently on loan</p>
+            {{else}}
+                <form method="post" action="/borrowBook/{{this._id}}">
+                    <button>Borrow Now</button>
+                </form>
+            {{/if}}
+            
+        </div>
+    </div>
+    {{/each}}
+
+</main>

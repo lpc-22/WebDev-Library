@@ -1,0 +1,15 @@
+<main>
+    <form class="login-form" method="post" action="/login">
+        <label for="">Library Card Number</label>
+        <input type="text" name="LibraryCardNumber" placeholder="Enter Your Library Card Number">
+
+        <label for="">Password</label>
+        <input type="password" name="password" placeholder="Enter Your Password">
+
+        {{#if errorMsg}}
+            <p class="errorMsg">{{errorMsg}}</p>
+        {{/if}}
+
+        <button type="submit">Login</button>
+    </form>
+</main>

@@ -1,0 +1,40 @@
+<main>
+    {{!-- User Information --}}
+    <div class="user-Information-container">
+        <h1>User Information</h1>
+        <table>
+            <tr>
+                <td class="bold">User Name: </td>
+                <td>{{Name}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Library Card Number: </td>
+                <td>{{LibraryCardNumber}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Phone Number: </td>
+                <td>{{PhoneNumber}}</td>
+            </tr>
+        </table>
+    </div>
+
+    {{!-- Borrowed Book --}}
+    {{#if msg}}
+        <div class="container">
+            <p>{{msg}}</p>
+        </div>
+    {{else}}
+        <div class="profile-bookItem-container">
+            {{#each borrowedBook}}
+                <div class="borrowed-book">
+                    {{!-- Book Title --}}
+                    <p>{{this.title}}</p>
+                    {{!-- BTN: Return --}}
+                    <form method="post" action="/return/{{this._id}}">
+                        <button type="submit">RETURN</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</main>
